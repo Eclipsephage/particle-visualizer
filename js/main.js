@@ -90,6 +90,9 @@ function init() {
     setupParticleSystem(scene);
     updateProgress(25);
 
+    // Set initial info text with shape and color
+    document.getElementById('info').innerText = `Shape: ${SHAPES[getCurrentShapeIndex()].name} | Color: ${CONFIG.colorScheme}`;
+
     setupEventListeners();
     updateProgress(15);
 
