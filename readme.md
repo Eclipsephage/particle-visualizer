@@ -2,6 +2,10 @@
 
 A mesmerizing 3D particle visualization tool that creates beautiful morphing shapes with dynamic color schemes and smooth animations.
 
+## Inspired By
+
+This project was inspired by the work of Puneet ([@VoXelo](https://codepen.io/VoXelo)) on CodePen. The original concept and core visualization techniques were adapted and expanded upon to create this modular implementation.
+
 ## Features
 
 - **Interactive 3D Visualization**: View and interact with particle systems in real-time
