@@ -1,79 +1,122 @@
 # Particle Visualizer
 
-A mesmerizing 3D particle visualization system that creates stunning morphing animations between different geometric shapes. Built with Three.js and modern web technologies.
-
-![Particle Visualizer Demo](demo.gif) *(Demo GIF to be added)*
+A mesmerizing 3D particle visualization tool that creates beautiful morphing shapes with dynamic color schemes and smooth animations.
 
 ## Features
 
-- **Dynamic Shape Morphing**: Smooth transitions between multiple geometric shapes:
-  - Sphere
-  - Cube
-  - Pyramid
-  - Torus
-  - Galaxy
-  - Wave
+- **Interactive 3D Visualization**: View and interact with particle systems in real-time
+- **Shape Morphing**: Smooth transitions between different geometric shapes
+- **Dynamic Color Schemes**: Choose from multiple color presets (Fire, Neon, Nature, Rainbow)
+- **Real-time Controls**: Interactive camera controls and shape morphing
+- **Performance Optimized**: Efficient particle rendering and animation system
+- **Responsive Design**: Adapts to different screen sizes and devices
 
-- **Interactive Controls**:
-  - Click anywhere to trigger shape morphing
-  - Orbit controls for camera movement
-  - Zoom in/out capabilities
-  - Shape selection button
-  - Color scheme selector
+## Getting Started
 
-- **Visual Effects**:
-  - Beautiful particle animations with physics-based movement
-  - Dynamic color schemes (Fire, Neon, Nature, Rainbow)
-  - Glowing particle effects with bloom post-processing
-  - Immersive starfield background
-  - Smooth transitions and morphing animations
+### Prerequisites
+- Python 3.x (for local server)
+- Modern web browser with WebGL support (Chrome recommended)
 
-- **Technical Features**:
-  - Built with Three.js for 3D rendering
-  - Uses WebGL for hardware acceleration
-  - Implements noise-based animations
-  - Responsive design that adapts to window size
-  - Optimized performance with efficient particle system
+### Running the Visualization
 
-## Technologies Used
+1. **Start the Local Server**:
+   ```bash
+   # Navigate to the project directory
+   cd particleVisualizer
 
-- Three.js (3D graphics library)
-- WebGL
-- Anime.js (animation library)
-- Simplex Noise (for organic movement)
-- Modern JavaScript (ES6+)
-- HTML5/CSS3
+   # Start the Python HTTP server
+   python -m http.server 8000
+   ```
 
-## Usage
+2. **View the Visualization**:
+   - Open your web browser
+   - Navigate to: `http://localhost:8000`
+   - The visualization will start automatically after loading
 
-1. Open `particles.html` in a modern web browser
-2. Use your mouse to:
-   - Click anywhere to trigger shape morphing
-   - Drag to rotate the view
+3. **Controls**:
+   - Left-click anywhere to trigger shape morphing
+   - Right-click and drag to rotate the camera view
    - Scroll to zoom in/out
-3. Use the control panel to:
-   - Change shapes manually
-   - Select different color schemes
+   - Use the "Change Shape" button at the bottom to manually trigger morphing
+   - Click the color options to change the color scheme
 
-## Requirements
+## File Structure
 
-- Modern web browser with WebGL support
-- Recommended: Dedicated graphics card for optimal performance
+```
+particleVisualizer/
+├── index.html              # Main entry point
+├── readme.md               # Project documentation
+├── js/
+│   ├── main.js             # Application initialization and coordination
+│   ├── animation.js        # Morphing and movement animations
+│   ├── particles.js        # Particle system management
+│   ├── shapes.js           # Shape generation functions
+│   └── config.js           # Configuration constants
+└── css/
+    ├── main.css            # Base styles
+    ├── ui.css              # Control interface styles
+    └── loading.css         # Loading screen styles
+```
+
+## Module Overview
+
+### Core Modules
+- **main.js**: Initializes the application, sets up Three.js scene, and coordinates all modules
+- **animation.js**: Handles particle morphing and movement animations
+- **particles.js**: Manages particle system creation, updates, and rendering
+- **shapes.js**: Contains functions for generating different geometric shapes
+- **config.js**: Centralized configuration for all adjustable parameters
+
+### Style Modules
+- **main.css**: Base styles for the application
+- **ui.css**: Styles for the control interface and color picker
+- **loading.css**: Styles for the loading screen and progress bar
+
+## Technical Details
+
+- Built with Three.js for 3D rendering
+- Uses WebGL for hardware-accelerated graphics
+- Implements custom shaders for particle effects
+- Utilizes simplex-noise for procedural generation
+- Employs anime.js for smooth animations
+
+## Dependencies
+
+- Three.js (v0.163.0)
+- Anime.js (v3.2.2)
+- Simplex-noise (v4.0.1)
+
+## Browser Support
+
+- Chrome (recommended)
+- Firefox
+- Safari
+- Edge
 
 ## Performance Notes
 
-The visualization uses approximately 15,000 particles and advanced visual effects. For the best experience:
-- Use a modern browser with WebGL support
-- Enable hardware acceleration
-- Consider reducing particle count on lower-end devices
+- Optimized for modern browsers with WebGL support
+- Particle count and effects can be adjusted in `config.js`
+- Performance may vary based on device capabilities
 
-## Credits
+## Development
 
-This project uses the following libraries:
-- Three.js - https://threejs.org/
-- Anime.js - https://animejs.com/
-- Simplex Noise - https://github.com/jwagner/simplex-noise.js
+To modify or extend the project:
+
+1. Adjust parameters in `config.js` for different effects
+2. Add new shapes in `shapes.js`
+3. Modify animation behavior in `animation.js`
+4. Update particle system in `particles.js`
+5. Customize styles in the CSS files
+
+## Troubleshooting
+
+If the visualization doesn't start:
+1. Ensure you're using a modern browser with WebGL support
+2. Check the browser console (F12) for any error messages
+3. Try a hard refresh (Ctrl + Shift + R or Ctrl + F5)
+4. Verify that all files are being served correctly (check server logs)
 
 ## License
 
-MIT License - Feel free to use and modify for your own projects.
+This project is open source and available under the MIT License.
