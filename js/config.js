@@ -29,5 +29,6 @@ export const COLOR_SCHEMES = {
     sunset: { startHue: 15, endHue: 300, saturation: 0.95, lightness: 0.55 },
     arctic: { startHue: 200, endHue: 220, saturation: 0.3, lightness: 0.85 },
     volcanic: { startHue: 0, endHue: 30, saturation: 0.95, lightness: 0.45 },
-    forest: { startHue: 100, endHue: 140, saturation: 0.8, lightness: 0.4 }
+    forest: { startHue: 100, endHue: 140, saturation: 0.8, lightness: 0.4 },
+    grey: { startHue: 0, endHue: 0, saturation: 0, lightness: 0.3 }
 }; 
