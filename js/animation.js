@@ -32,7 +32,7 @@ const bezPos = new THREE.Vector3();
 const swirlAxis = new THREE.Vector3();
 const currentVec = new THREE.Vector3();
 
-export function triggerMorph() {
+export function triggerMorph(targetIndex = null) {
     if (isMorphing) return;
     isMorphing = true;
     console.log("Morphing triggered...");
@@ -45,7 +45,7 @@ export function triggerMorph() {
     const targetPositions = getTargetPositions();
 
     sourcePositions.set(currentPositions);
-    const nextShapeIndex = (currentShapeIndex + 1) % SHAPES.length;
+    const nextShapeIndex = targetIndex !== null ? targetIndex : (currentShapeIndex + 1) % SHAPES.length;
     const nextTargetPositions = targetPositions[nextShapeIndex];
     const centerOffsetAmount = CONFIG.shapeSize * CONFIG.swarmDistanceFactor;
 
@@ -77,7 +77,7 @@ export function triggerMorph() {
         easing: 'cubicBezier(0.4, 0.0, 0.2, 1.0)',
         complete: () => {
             console.log("Morphing complete.");
-            document.getElementById('info').innerText = `Shape: ${SHAPES[currentShapeIndex].name} (Click to morph)`;
+            document.getElementById('info').innerText = `Shape: ${SHAPES[currentShapeIndex].name} | Color: ${CONFIG.colorScheme}`;
             document.getElementById('info').style.textShadow = '0 0 5px rgba(0, 128, 255, 0.8)';
             currentPositions.set(targetPositions[currentShapeIndex]);
             getParticlesGeometry().attributes.position.needsUpdate = true;
@@ -194,4 +194,12 @@ export function getIsMorphing() {
 
 export function getCurrentShapeIndex() {
     return currentShapeIndex;
+}
+
+export function setShapeIndex(index) {
+    if (index >= 0 && index < SHAPES.length) {
+        currentShapeIndex = index;
+        return true;
+    }
+    return false;
 } 

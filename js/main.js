@@ -6,7 +6,20 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
 import { createNoise3D, createNoise4D } from 'simplex-noise';
 import { CONFIG } from './config.js';
 import { setupParticleSystem, setNoiseFunctions, updateColors } from './particles.js';
-import { triggerMorph, updateMorphAnimation, updateIdleAnimation, getIsMorphing } from './animation.js';
+import { triggerMorph, updateMorphAnimation, updateIdleAnimation, getIsMorphing, getCurrentShapeIndex, setShapeIndex } from './animation.js';
+import { SHAPES } from './shapes.js';
+
+// Add morphToShape function
+window.morphToShape = function(targetIndex) {
+    const currentIndex = getCurrentShapeIndex();
+    if (currentIndex === targetIndex) return; // Already showing this shape
+    if (getIsMorphing()) return;
+    
+    // Set the current shape index and trigger morph
+    if (setShapeIndex(targetIndex)) {
+        triggerMorph(targetIndex);
+    }
+};
 
 let scene, camera, renderer, controls, clock;
 let composer, bloomPass;
@@ -187,22 +200,16 @@ function createStarTexture() {
 
 function setupEventListeners() {
     window.addEventListener('resize', onWindowResize);
-    window.addEventListener('click', onCanvasClick);
-    document.getElementById('shape-btn').addEventListener('click', triggerMorph);
     document.querySelectorAll('.color-option').forEach(option => {
         option.addEventListener('click', (e) => {
             document.querySelectorAll('.color-option').forEach(o => o.classList.remove('active'));
             e.target.classList.add('active');
             CONFIG.colorScheme = e.target.dataset.scheme;
             updateColors();
+            document.getElementById('info').innerText = `Shape: ${SHAPES[getCurrentShapeIndex()].name} | Color: ${CONFIG.colorScheme}`;
         });
     });
     document.querySelector(`.color-option[data-scheme="${CONFIG.colorScheme}"]`).classList.add('active');
-}
-
-function onCanvasClick(event) {
-    if (event.target.closest('#controls')) return;
-    triggerMorph();
 }
 
 function onWindowResize() {

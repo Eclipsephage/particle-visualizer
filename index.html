@@ -17,16 +17,26 @@
     </div>
 
     <div id="ui">
-        <div id="info">Shape: Sphere (Click to morph)</div>
+        <div id="info">Shape: Sphere</div>
     </div>
 
     <div id="controls">
-        <button id="shape-btn">Change Shape</button>
+        <button id="sphere-btn" onclick="morphToShape(0)">SPHERE</button>
+        <button id="cube-btn" onclick="morphToShape(1)">CUBE</button>
+        <button id="pyramid-btn" onclick="morphToShape(2)">PYRAMID</button>
+        <button id="torus-btn" onclick="morphToShape(3)">TORUS</button>
+        <button id="galaxy-btn" onclick="morphToShape(4)">GALAXY</button>
+        <button id="wave-btn" onclick="morphToShape(5)">WAVE</button>
         <div id="color-picker">
             <div class="color-option" data-scheme="fire" style="background: linear-gradient(to bottom right, #ff4500, #ffcc00)"></div>
             <div class="color-option" data-scheme="neon" style="background: linear-gradient(to bottom right, #ff00ff, #00ffff)"></div>
             <div class="color-option" data-scheme="nature" style="background: linear-gradient(to bottom right, #00ff00, #66ffcc)"></div>
             <div class="color-option" data-scheme="rainbow" style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)"></div>
+            <div class="color-option" data-scheme="ocean" style="background: linear-gradient(to bottom right, #00a8ff, #00ffd5)"></div>
+            <div class="color-option" data-scheme="sunset" style="background: linear-gradient(to bottom right, #ff6b00, #ff00ff)"></div>
+            <div class="color-option" data-scheme="arctic" style="background: linear-gradient(to bottom right, #e6f3ff, #b3e0ff)"></div>
+            <div class="color-option" data-scheme="volcanic" style="background: linear-gradient(to bottom right, #ff0000, #ff6600)"></div>
+            <div class="color-option" data-scheme="forest" style="background: linear-gradient(to bottom right, #004d00, #00cc00)"></div>
         </div>
     </div>
 
