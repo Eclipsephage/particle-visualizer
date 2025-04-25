@@ -10,39 +10,63 @@ This project was inspired by the work of Puneet ([@VoXelo](https://codepen.io/Vo
 
 - **Interactive 3D Visualization**: View and interact with particle systems in real-time
 - **Shape Morphing**: Smooth transitions between different geometric shapes
-- **Dynamic Color Schemes**: Choose from multiple color presets (Fire, Neon, Nature, Rainbow)
+- **Dynamic Color Schemes**: Choose from multiple color presets (Fire, Neon, Nature, Rainbow, Ocean, Sunset, Arctic, Volcanic, Forest)
 - **Real-time Controls**: Interactive camera controls and shape morphing
 - **Performance Optimized**: Efficient particle rendering and animation system
 - **Responsive Design**: Adapts to different screen sizes and devices
+- **Hot Reloading**: Automatic browser refresh when files change (development mode)
 
 ## Getting Started
 
 ### Prerequisites
-- Python 3.x (for local server)
+- Node.js and npm (for development server)
+  - **Windows**: Download and install from [Node.js official website](https://nodejs.org/)
+  - **macOS**: 
+    - Using Homebrew: `brew install node`
+    - Or download from [Node.js official website](https://nodejs.org/)
+  - **Linux**:
+    ```bash
+    # Ubuntu/Debian
+    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+
+    # Fedora
+    sudo dnf install nodejs
+
+    # Arch Linux
+    sudo pacman -S nodejs npm
+    ```
 - Modern web browser with WebGL support (Chrome recommended)
 
 ### Running the Visualization
 
-1. **Start the Local Server**:
+1. **Start the Development Server**:
    ```bash
    # Navigate to the project directory
    cd particleVisualizer
 
-   # Start the Python HTTP server
-   python -m http.server 8000
+   # Start the development server
+   npx live-server
    ```
 
 2. **View the Visualization**:
-   - Open your web browser
-   - Navigate to: `http://localhost:8000`
+   - The server will automatically open your default browser
+   - If not, navigate to: `http://localhost:8080`
    - The visualization will start automatically after loading
 
-3. **Controls**:
+3. **Development Features**:
+   - Automatic browser refresh when files change
+   - No need to manually refresh after code changes
+   - Accessible from other devices on your network
+   - Built-in fallback to index.html for SPA support
+
+4. **Controls**:
    - Left-click anywhere to trigger shape morphing
    - Right-click and drag to rotate the camera view
    - Scroll to zoom in/out
-   - Use the "Change Shape" button at the bottom to manually trigger morphing
+   - Use the shape buttons at the bottom to manually select specific shapes
    - Click the color options to change the color scheme
+   - Current shape and color scheme are displayed in the top info panel
 
 ## File Structure
 
